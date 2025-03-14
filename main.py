@@ -1,5 +1,6 @@
 import pygame
 from constants import *
+from player import Player
 
 def main():
 
@@ -22,6 +23,9 @@ def main():
                 running = False
 
         screen.fill((0, 0, 0))
+
+        player = Player(x = SCREEN_WIDTH / 2, y = SCREEN_HEIGHT / 2)
+        player.draw(screen)
 
         pygame.display.flip()
 
