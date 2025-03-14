@@ -1,8 +1,10 @@
 import pygame
+import sys
 from constants import *
 from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
+from circleshape import CircleShape
 
 def main():
 
@@ -58,6 +60,12 @@ def main():
         # For each drawable in drawables, draw it to the screen
         for drawable in drawables:
             drawable.draw(screen)
+
+        # Iterate over asteroid objects to check for collisions
+        for asteroid in asteroids:
+            if(asteroid.collision_check(player)):
+                print("Game over!")
+                sys.exit()
 
         # Display everything and calculate the time delta for the next frame
         pygame.display.flip()
