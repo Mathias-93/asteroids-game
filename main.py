@@ -5,6 +5,7 @@ from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
 from circleshape import CircleShape
+from shot import Shot
 
 def main():
 
@@ -28,12 +29,14 @@ def main():
     updatables = pygame.sprite.Group()
     drawables = pygame.sprite.Group()
     asteroids = pygame.sprite.Group()
+    shots = pygame.sprite.Group()
 
 
-    # Set these groups as containers for the player class
+    # Set these groups as containers for the classes
     Player.containers = (updatables, drawables)
     Asteroid.containers = (updatables, drawables, asteroids)
     AsteroidField.containers = (updatables,)
+    Shot.containers = (shots,)
 
     # Create an instance of the player class after setting the containers
     # This makes sure they are automatically added to both groups
@@ -66,6 +69,10 @@ def main():
             if(asteroid.collision_check(player)):
                 print("Game over!")
                 sys.exit()
+
+        for shot in shots:
+            shot.update(dt)
+            shot.draw(screen)
 
         # Display everything and calculate the time delta for the next frame
         pygame.display.flip()
