@@ -9,10 +9,6 @@ from shot import Shot
 
 def main():
 
-    #print("Starting Asteroids!")
-    #print(f"Screen width: {SCREEN_WIDTH}")
-    #print(f"Screen height: {SCREEN_HEIGHT}")
-
     # Initialize pygame
     pygame.init()
 
@@ -25,7 +21,7 @@ def main():
     # Initialize delta
     dt = 0
     
-    # Creates two groups, updatables and drawables
+    # Creates groups
     updatables = pygame.sprite.Group()
     drawables = pygame.sprite.Group()
     asteroids = pygame.sprite.Group()
