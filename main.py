@@ -66,9 +66,15 @@ def main():
                 print("Game over!")
                 sys.exit()
 
+            for shot in shots:
+                if(asteroid.collision_check(shot)):
+                    asteroid.split()
+                    shot.kill()
+
         for shot in shots:
             shot.update(dt)
             shot.draw(screen)
+            
 
         # Display everything and calculate the time delta for the next frame
         pygame.display.flip()
